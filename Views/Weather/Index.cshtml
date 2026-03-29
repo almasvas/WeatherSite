@@ -1,0 +1,54 @@
+@{
+    ViewBag.Title = "Погода";
+}
+
+<section class="weather-app" data-weather-root>
+    <header class="weather-header">
+        <h1 data-city-title>Погода: Москва</h1>
+        <p class="muted">Текущая, почасовая и прогноз на 3 дня</p>
+        <div class="header-actions">
+            <button type="button" class="btn secondary" data-use-location-button>Использовать мое местоположение</button>
+            <span class="location-spinner hidden" data-location-spinner aria-live="polite">Обновляем погоду...</span>
+        </div>
+    </header>
+
+    <div class="state-box loading" data-loading-state>
+        <p>Загрузка данных погоды...</p>
+    </div>
+
+    <div class="state-box error hidden" data-error-state>
+        <p data-error-message>Не удалось загрузить данные.</p>
+        <button type="button" class="btn" data-retry-button>Повторить запрос</button>
+    </div>
+
+    <div class="content hidden" data-content-state>
+        <section class="card current-weather">
+            <h2>Сейчас</h2>
+            <div class="current-grid">
+                <div>
+                    <p class="temp" data-current-temp>-</p>
+                    <p data-current-condition>-</p>
+                </div>
+                <div class="current-meta">
+                    <p>Ощущается: <span data-current-feels>-</span></p>
+                    <p>Влажность: <span data-current-humidity>-</span></p>
+                    <p>Ветер: <span data-current-wind>-</span></p>
+                    <p>Обновлено: <span data-current-updated>-</span></p>
+                </div>
+                <div>
+                    <img data-current-icon alt="Текущая погода" class="weather-icon" />
+                </div>
+            </div>
+        </section>
+
+        <section class="card hourly-section">
+            <h2>Почасовой прогноз</h2>
+            <div class="horizontal-list" data-hourly-list></div>
+        </section>
+
+        <section class="card">
+            <h2>Прогноз на 3 дня</h2>
+            <div class="daily-list" data-daily-list></div>
+        </section>
+    </div>
+</section>
